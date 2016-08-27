@@ -2,8 +2,7 @@
 FROM resin/rpi-raspbian:wheezy
 MAINTAINER Veekee
 
-# Mainly based on tvelocity/etherpad-lite
-# Parts from http://node-arm.herokuapp.com/
+# Mainly based on nimmis/docker-apache
 
 RUN apt-get update && apt-get upgrade && \
     apt-get install -y vim curl unzip wget apache2 && \
@@ -18,6 +17,7 @@ VOLUME /etc/apache2/conf.d
 VOLUME /var/log/apache2
 
 EXPOSE 80
+EXPOSE 443
 
 ENTRYPOINT ["/entrypoint.sh"]
-CMD ["bin/run.sh", "--root"]
+CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
