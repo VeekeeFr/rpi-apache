@@ -4,9 +4,9 @@ MAINTAINER Veekee
 
 # Mainly based on nimmis/docker-apache
 
-RUN apt-get update && apt-get upgrade && \
-    apt-get install -y vim curl unzip wget apache2 && \
-    rm -r /var/lib/apt/lists/*
+RUN apt-get update
+RUN apt-get upgrade
+RUN apt-get install -y vim curl unzip wget apache2
 
 COPY entrypoint.sh /entrypoint.sh
 
