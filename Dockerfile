@@ -4,7 +4,7 @@ MAINTAINER Veekee
 
 # Mainly based on nimmis/docker-apache
 
-RUN apt-get update ; echo "OK"
+RUN apt-get -qq update
 RUN apt-get upgrade
 RUN apt-get install -y vim curl unzip wget apache2
 RUN rm -r /var/lib/apt/lists/*
